@@ -1,0 +1,1 @@
+window.fnNull = function(){} // 구글정책으로 사용. 

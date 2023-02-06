@@ -1,0 +1,23 @@
+*{
+  font-family: inherit;
+  font-size: inherit;
+  color:inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: inherit;
+}
+body{
+  font-family: 'Montserrat', 'Noto Sans KR',  sans-serif;
+  font-size: 16px;
+  color:#444;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+}
+
+:root{
+  --main-color:rgba(33,122,240);
+  --sub-color:#6a90d0;
+  --white-color:#ffffff;
+  --yellow-color:#ffff00;
+}

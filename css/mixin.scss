@@ -1,0 +1,28 @@
+@mixin pos-center{
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+@mixin flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin full-img{
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@mixin innerStyle {
+  width: 95%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: rgba(#111, 0.2);
+  border-radius: 10px;
+  overflow: auto;
+  color: #eee;
+}

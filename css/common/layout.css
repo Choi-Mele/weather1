@@ -1,0 +1,57 @@
+body {
+  background-image: url(../../img/main/weather-icos.gif);
+  background-size: contain;
+  animation: bgMove 100s infinite linear alternate;
+}
+@keyframes bgMove {
+  0% {
+    background-position: 0 center;
+  }
+  100% {
+    background-position: -1000px center;
+  }
+}
+
+h2.title-name {
+  max-width: 220px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 600;
+  padding: 5px 15px;
+  border-radius: 50px;
+  color: #eee;
+  background-color: rgba(17, 17, 17, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h2.title-name .icon {
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+h2.title-name i {
+  font-size: 0.9em;
+  margin-right: 5px;
+}
+
+#root {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 920px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(17, 17, 17, 0.5);
+}
+#root main#app-container {
+  height: 100%;
+  overflow-y: scroll;
+}/*# sourceMappingURL=layout.css.map */

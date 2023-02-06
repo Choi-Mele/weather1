@@ -1,0 +1,38 @@
+.map-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  box-sizing: border-box;
+  padding: 10px;
+  transform: translateX(100%);
+  transition: all 1s;
+}
+.map-section.active {
+  transform: translateX(0);
+}
+.map-section #map {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 20px #000;
+}
+.map-section .close-map {
+  position: absolute;
+  top: 13%;
+  right: 2%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: rgb(33, 122, 240);
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px #000;
+  color: #eee;
+  transition: all 0.3s;
+}
+.map-section .close-map:hover {
+  background-color: #eee;
+  color: rgb(33, 122, 240);
+}/*# sourceMappingURL=map.css.map */

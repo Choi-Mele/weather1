@@ -1,0 +1,248 @@
+@import '../mixin.scss';
+
+.current-section{
+  position: relative;
+  @include flex-center;
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 70px;
+  color: #eee;
+
+  .inner{
+    width: 90%;
+    margin : 0 auto;
+    
+    .address{
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    .current-info{
+      position: relative;
+      background-color: rgba(#111,0.3);
+      border-radius: 50%;
+      overflow: hidden;
+      &::before{
+        content: '';
+        display: block;
+        padding-top: 100%;
+      }//before
+
+      .wrap{
+        @include pos-center;
+        @include flex-center;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 20px;
+        width: 87%; height: 87%;
+        border-radius: 50%;
+        text-align: center;
+        
+        
+        .sun-set-rise{
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          border-radius: 50%;
+          .circle{ // 반원
+            position: relative;
+            top: 0;
+            width: 100%; height: 50%;
+            overflow: hidden;
+            &::before{
+              position: absolute;
+              top:0;
+              content: '';
+              display: block;
+              box-sizing: border-box;
+              width: 100%; height: 200%;
+              border-radius: 50%;
+              border: 3px solid #fff;
+            }//before
+          }//circle
+
+          time{
+            position: absolute;
+            top: 52%;
+            transform: translateX(-50%);
+            font-size: 0.8em;
+            color: yellow;
+            white-space: nowrap;
+
+            &.sunrise{
+              left: 0;
+            }//sunrise
+            &.sunset{
+              left: 100%;
+            }//sunset
+            i{
+              display: block;
+            }//i
+          }//time
+
+          .current-sun{
+            position: absolute;
+            top: 50%; left: 0;
+            width: 50%; height: 0;
+            transform-origin: right center;
+            i{
+              position: absolute;
+              left: 0; top: 0;
+              animation: scale 2s infinite alternate;
+              text-shadow: 0 0 5px rgba(#fff,0.5);
+              
+              @keyframes scale {
+                0%{
+                  color: yellow;
+                  transform: translate(-50%,-50%) scale(1) rotate(0deg);
+                }
+                100%{
+                  color: #fff;
+                  transform: translate(-50%,-50%) scale(1.8) rotate(180deg);               
+                }
+              }//keyframe scale
+            }//i
+          }//current-sun
+        }//sun-set-rise
+
+        .temp{
+          display: flex;
+          align-items: center;
+          margin: 20px;
+          img{
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            margin-right: 15px;
+            box-shadow: 0 0 10px rgba(#fff,0.8);
+          }
+
+          span{
+            em{
+              font-size: 3em;
+            }
+            sup{
+              display: inline-block;
+              font-size: 1.5em;
+            }
+          }
+        }
+
+        .temp-min-max{
+          padding: 5px 15px;
+          border-radius: 20px;
+          background-color: rgba(#111,0.2);
+          b{
+            margin: 0 3px;
+            sup{
+              vertical-align: bottom;
+              margin-left: 3px;
+            }
+          }
+        }
+
+        .desc{
+          font-size :1.3em;
+        }
+
+        .rain-snow{
+          margin : 10px 0;
+          padding: 5px 15px;
+          border-radius: 20px;
+          background-color: rgba(#111,0.2);
+          b{
+            margin: 0 10px;
+            i{
+              margin-right: 5px;
+            }
+            small{
+              font-size: 0.6em;
+            }
+          }
+        }
+
+        .wind{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          b{
+            margin: 0 10px;
+            &.wind-deg{
+              display: inline-block;
+              width: 25px; height: 25px;
+              border-radius: 50%;
+              background-color: rgba(33,122,240,0.5);
+              @include flex-center;
+            }
+            > small{
+              font-size: 0.6em;
+            }
+            .fa-wind{
+              margin-right: 5px;
+            }
+          }
+          > small{
+            font-size: 0.4em;
+          }
+        }
+
+      }//wrap
+    }//current-info
+
+    p.time{
+      width: 80%;
+      margin: 30px auto;
+      text-align: center;
+      time{
+        display: block;
+        text-shadow: 1px 1px 0 #333;
+        &.hhmm{
+          font-size: 2.5em;
+          font-weight: 600;
+        }
+        &.yydd{
+          font-size: 1.5em;
+          font-weight: 300;
+        }
+      }//time
+    }//p.time
+  }//inner
+
+  .more{
+    position: absolute;
+    left: 50%; top: 100%;
+    width: 50px; height: 50px;
+    transform: translate(-50%,-50%);
+    font-size: 3em;
+    color: #eee;
+    animation: doki 1s infinite alternate linear;
+    
+    i{
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      transition: all 0.5s;
+    }
+    .minus{ opacity: 0; }
+    &.active{
+      .plus{ opacity: 0;}
+      .minus{opacity: 1;}
+    }
+    &::after,&::before{
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 70px;
+      border-bottom: 2px solid #fff;
+    }
+
+    &::before{ left: 100%;}
+    &::after{ right: 100%;}
+
+    @keyframes doki {
+      0%{ transform: translate(-50%,-50%) scale(0.7);}
+      100%{transform: translate(-50%,-50%) scale(1);}
+    }
+  }
+}//current-section
